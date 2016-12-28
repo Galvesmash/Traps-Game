@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 
@@ -9,7 +10,15 @@ public class GameManager : MonoBehaviour {
     public GameObject playerSpawnGO { get; set; }
     public GameObject playerFinishGO { get; set; }
 
+    public List<SawBehavior> sawList { get; set; }
+    public List<LaserBehavior> laserList { get; set; }
+    public List<SpikesBehavior> spikesList { get; set; }
+
+    [Header ("Player")]
     public float playerSpeed;
+
+    [Header ("Traps")]
+    public float timeDeactivated;
 
     void Awake () {
         Instance = this;
@@ -20,7 +29,13 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start () {
+        sawList = new List<SawBehavior> ();
+        laserList = new List<LaserBehavior> ();
+        spikesList = new List<SpikesBehavior> ();
 
+        sawList.AddRange (FindObjectsOfType<SawBehavior> ());
+        laserList.AddRange (FindObjectsOfType<LaserBehavior> ());
+        spikesList.AddRange(FindObjectsOfType<SpikesBehavior> ());
     }
     
 	void Update () {
@@ -37,6 +52,8 @@ public class GameManager : MonoBehaviour {
     }
 
     public void SpikesButtonClick () {
-
+        foreach (SpikesBehavior sb in spikesList) {
+            sb.changeSpikesState (3);
+        }
     }
 }
