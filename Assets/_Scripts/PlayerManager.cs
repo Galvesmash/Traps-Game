@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerManager : MonoBehaviour {
 
-    public static PlayerController Instance;
+    public static PlayerManager Instance;
 
     GameObject target;
     float speed;
@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Start () {
-        target = GameController.Instance.playerFinishGO;
-        speed = GameController.Instance.playerSpeed;
+        target = GameManager.Instance.playerFinishGO;
+        speed = GameManager.Instance.playerSpeed;
     }
 
 	void Update () {

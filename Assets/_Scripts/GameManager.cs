@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameController : MonoBehaviour {
+public class GameManager : MonoBehaviour {
 
-    public static GameController Instance;
+    public static GameManager Instance;
 
     public PlayerSpawn playerSpawn { get; set; }
     public GameObject playerSpawnGO { get; set; }
@@ -26,4 +26,17 @@ public class GameController : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    //FUNCTIONS
+    public void SawButtonClick () {
+
+    }
+
+    public void LaserButtonClick () {
+
+    }
+
+    public void SpikesButtonClick () {
+
+    }
 }

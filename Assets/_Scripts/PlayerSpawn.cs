@@ -11,7 +11,7 @@ public class PlayerSpawn : MonoBehaviour {
     }
 
 	void Update () {
-        if (PlayerController.Instance == null) {
+        if (PlayerManager.Instance == null) {
             Instantiate (PlayerPrefab, startPosition, Quaternion.identity);
         }
 	}
